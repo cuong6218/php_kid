@@ -30,4 +30,21 @@ class KidController
             header('location:index.php?page=list-kid');
         }
     }
+    function updateKid()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $id = $_REQUEST['id'];
+            $kid = $this->kidManager->getKidById($id);
+            include_once('src/View/tbl_kids/update-kid.php');
+        } else {
+            $id = $_REQUEST['id'];
+            $kidName = $_REQUEST['kid_name'];
+            $age = $_REQUEST['age'];
+            $address = $_REQUEST['address'];
+            $kid = new Kid($kidName, $age, $address);
+            $kid->setId($id);
+            $this->kidManager->update($kid);
+            header('location:index.php?page=list-kid');
+        }
+    }
 }

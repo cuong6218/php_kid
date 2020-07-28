@@ -32,4 +32,22 @@ class KidManager
         $statement->bindParam(':address', $kid->getAddress());
         $statement->execute();
     }
+    function update($kid)
+    {
+        $sql = "UPDATE `tbl_kids` SET `kid_name` = :kid_name, `age` = :age, `address` = :address WHERE `id` = :id";
+        $statement = $this->database->prepare($sql);
+        $statement->bindParam(':id', $kid->getId());
+        $statement->bindParam(':kid_name', $kid->getKidName());
+        $statement->bindParam(':age', $kid->getAge());
+        $statement->bindParam(':address', $kid->getAddress());
+        $statement->execute();
+    }
+    function getKidById($id)
+    {
+        $sql = "SELECT * FROM `tbl_kids` WHERE `id` = :id";
+        $statement = $this->database->prepare($sql);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        return $statement->fetch();
+    }
 }

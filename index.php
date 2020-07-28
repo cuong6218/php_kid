@@ -24,6 +24,9 @@ $kidController = new KidController();
         case 'add-kid':
             $kidController->addKid();
             break;
+        case 'update-kid':
+            $kidController->updateKid();
+            break;
         default:
             $kidController->viewKid();
     }

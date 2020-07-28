@@ -18,6 +18,7 @@
                 <td><?php echo $kid->getKidName(); ?></td>
                 <td><?php echo $kid->getAge(); ?></td>
                 <td><?php echo $kid->getAddress(); ?></td>
+                <td><a href="index.php?page=update-kid&id=<?php echo $kid->getId(); ?>">Update</a></td>
             </tr>
         <?php endforeach; ?>
     <?php endif; ?>
