@@ -1,3 +1,4 @@
+<a href="index.php?page=add-kid">Add Kid</a>
 <table>
     <tr>
         <th>STT</th>

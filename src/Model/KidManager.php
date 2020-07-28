@@ -23,4 +23,13 @@ class KidManager
         }
         return $kids;
     }
+    function add($kid)
+    {
+        $sql = "INSERT INTO `tbl_kids` (`kid_name`, `age`, `address`) VALUES (:kid_name, :age, :address)";
+        $statement = $this->database->prepare($sql);
+        $statement->bindParam(':kid_name', $kid->getKidName());
+        $statement->bindParam(':age', $kid->getAge());
+        $statement->bindParam(':address', $kid->getAddress());
+        $statement->execute();
+    }
 }
