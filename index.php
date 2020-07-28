@@ -30,6 +30,9 @@ $kidController = new KidController();
         case 'delete-kid':
             $kidController->deleteKid();
             break;
+        case 'search-kid':
+            $kidController->searchKidName();
+            break;
         default:
             $kidController->viewKid();
     }

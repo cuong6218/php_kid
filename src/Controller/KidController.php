@@ -53,4 +53,12 @@ class KidController
         $this->kidManager->delete($id);
         header('location:index.php?page=list-kid');
     }
+    function searchKidName()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $keyword = $_POST['keyword_name'];
+            $kids = $this->kidManager->searchKidByName($keyword);
+            include_once('src/View/tbl_kids/list-kid.php');
+        }
+    }
 }

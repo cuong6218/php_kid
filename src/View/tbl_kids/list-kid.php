@@ -1,4 +1,9 @@
 <a href="index.php?page=add-kid">Add Kid</a>
+<form method="post" action="index.php?page=search-kid">
+    <input type="text" name="keyword_name" placeholder="keyword" />
+    <button type="submit">Search</button>
+</form>
+<h1>List Kid</h1>
 <table>
     <tr>
         <th>STT</th>

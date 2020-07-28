@@ -57,4 +57,19 @@ class KidManager
         $statement->bindParam(':id', $id);
         $statement->execute();
     }
+    function searchKidByName($keyword)
+    {
+        $sql = "SELECT * FROM `tbl_kids` WHERE `kid_name` LIKE :keyword";
+        $statement = $this->database->prepare($sql);
+        $statement->bindValue(':keyword', "%" . $keyword . "%");
+        $statement->execute();
+        $data = $statement->fetchAll();
+        $kids = [];
+        foreach ($data as $person) {
+            $kid = new Kid($person['kid_name'], $person['age'], $person['address']);
+            $kid->setId($person['id']);
+            array_push($kids, $kid);
+        }
+        return $kids;
+    }
 }
