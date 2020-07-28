@@ -47,4 +47,10 @@ class KidController
             header('location:index.php?page=list-kid');
         }
     }
+    function deleteKid()
+    {
+        $id = $_REQUEST['id'];
+        $this->kidManager->delete($id);
+        header('location:index.php?page=list-kid');
+    }
 }

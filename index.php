@@ -27,6 +27,9 @@ $kidController = new KidController();
         case 'update-kid':
             $kidController->updateKid();
             break;
+        case 'delete-kid':
+            $kidController->deleteKid();
+            break;
         default:
             $kidController->viewKid();
     }
