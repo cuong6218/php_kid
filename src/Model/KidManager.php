@@ -12,7 +12,7 @@ class KidManager
     }
     function getAll()
     {
-        $sql = "SELECT * FROM `tbl_kids`";
+        $sql = "SELECT * FROM `tbl_kids` ORDER BY `id` DESC";
         $statement = $this->database->query($sql);
         $data = $statement->fetchAll();
         $kids = [];
